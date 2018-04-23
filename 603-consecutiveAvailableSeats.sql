@@ -21,17 +21,17 @@
 # Write your MySQL query statement below
 
 # method 1
-# SELECT a.seat_id
-# FROM cinema a
-# join cinema b
-# on (a.free = 1 and b.free =1) and abs(a.seat_id - b.seat_id)=1
-# order by seat_id
+SELECT a.seat_id
+FROM cinema a
+join cinema b
+on (a.free = 1 and b.free =1) and abs(a.seat_id - b.seat_id)=1
+order by seat_id
 
 
 # medthod 2
-# SELECT A.seat_id FROM CINEMA A INNER JOIN CINEMA B ON A.seat_id=B.seat_id-1 WHERE A.free=B.free
-# UNION
-# SELECT A.seat_id FROM CINEMA A INNER JOIN CINEMA B ON A.seat_id=B.seat_id+1 WHERE A.free=B.free
+SELECT A.seat_id FROM CINEMA A INNER JOIN CINEMA B ON A.seat_id=B.seat_id-1 WHERE A.free=B.free
+UNION
+SELECT A.seat_id FROM CINEMA A INNER JOIN CINEMA B ON A.seat_id=B.seat_id+1 WHERE A.free=B.free
 
 
 # method 3
