@@ -1,2 +1,2 @@
 # SQL-exericise practice
-https://sqlzoo.net
+[SQLzoo](https://sqlzoo.net)
