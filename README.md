@@ -1,4 +1,6 @@
-# SQL-exericise practice
+For Leetcode files, I write at least one method(s) below leetcode questions.
+
+# EXTRA:SQL-exericise practice
 [SQLzoo](https://sqlzoo.net) 
 <br />
 [W3Schools](https://www.w3schools.com/sql/) 
