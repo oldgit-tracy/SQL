@@ -37,3 +37,25 @@
 -- And its location is the same with the third record, which makes the third record fail, too.
 --
 -- So, the result is the sum of TIV_2016 of the first and last record, which is 45.
+
+
+# Write your MySQL query statement below
+
+# method 1
+select round(sum(TIV_2016),2) AS TIV_2016 from insurance
+where TIV_2015 in (select TIV_2015 from insurance group by TIV_2015 having count(*) >1)
+and concat(lon, lat) in (select concat(lon, lat) from insurance group by lon, lat having count(*)=1)
+
+
+# method 2
+SELECT ROUND(SUM(TIV_2016), 2) AS TIV_2016 FROM insurance
+WHERE PID IN
+(SELECT PID FROM insurance GROUP BY LAT, LON HAVING COUNT(*) = 1)
+AND PID NOT IN
+(SELECT PID FROM insurance GROUP BY TIV_2015 HAVING COUNT(*) = 1)
+
+
+# method 3
+SELECT sum(distinct i1.TIV_2016) as TIV_2016 FROM insurance i1, insurance i2 where i1.PID != i2.PID AND i1.TIV_2015 = i2.TIV_2015 AND (i1.LAT,i1.LON) NOT IN (
+    select LAT, LON FROM insurance GROUP BY LAT, LON HAVING count(*) > 1
+)
