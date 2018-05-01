@@ -10,3 +10,7 @@
 -- |----------|
 -- | 1.00     |
 -- Note: The longest distance among all the points are less than 10000.
+
+select round(SQRT(min(power(P1.y-P2.y,2)+power(P1.x-P2.x,2))),2) as shortest
+from point_2d P1,point_2d P2
+where P1.x <> P2.x or P1.y <> P2.y

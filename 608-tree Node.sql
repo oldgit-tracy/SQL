@@ -38,3 +38,29 @@
 -- Note
 --
 -- If there is only one node on the tree, you only need to output its root attributes.
+
+
+# Write your MySQL query statement below
+
+# method 1
+SELECT id,
+       CASE WHEN p_id IS NULL THEN 'Root'
+            WHEN id NOT IN (SELECT p_id FROM tree WHERE p_id IS NOT NULL) THEN 'Leaf'
+            ELSE 'Inner' END AS Type
+FROM tree
+
+
+# method 2
+select T.id,
+IF(isnull(T.p_id), 'Root', IF(T.id in (select p_id from tree), 'Inner', 'Leaf')) Type
+from tree T
+
+
+# method 3
+select id,
+case
+when p_id is null then 'Root'
+when id in(select distinct p_id from tree)
+then 'Inner'
+else 'Leaf' end as Type
+from tree;
