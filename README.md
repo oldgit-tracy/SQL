@@ -12,3 +12,7 @@ For Leetcode files, I write at least one method(s) below leetcode questions.
 [SQL:Table Tansformation](https://www.codecademy.com/learn/sql-table-transformation)
 <br />
 [SQL: Analyzing Business Metrics](https://www.codecademy.com/learn/sql-analyzing-business-metrics)
+<br />
+[Interactive SQL Textbook](http://www.sql-tutorial.ru/en)
+<br />
+[SQL Tutorial - Learn SQL Query Language](https://www.1keydata.com/sql/sql.html)
